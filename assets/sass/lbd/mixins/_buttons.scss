@@ -1,0 +1,81 @@
+// Mixin for generating new styles
+@mixin btn-styles($btn-color, $btn-states-color) {
+  border-color: $btn-color;
+  background-color: $btn-color;
+  color: #fff;
+  
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    background-color: $btn-color;
+    color: #fff;
+    border-color: $btn-color;
+    box-shadow: transparentize($btn-color, .3) 0 1px 8px;
+  }
+  
+  &.disabled,
+  &:disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: $transparent-bg;
+          border-color: $btn-color;
+    }
+  }
+  
+
+  &.btn-hollow {
+    border-color: $btn-color;
+    color: $btn-color;
+    font-weight:600;
+    background-color: transparent;
+    @include opacity(.7);
+    
+    &.btn-round {
+        font-weight:400;
+    }
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle{
+        background-color: $btn-color;
+        color: $white-color;
+        box-shadow: none;
+        // @include opacity(1);
+    }
+    
+    .caret{
+        border-top-color: $white-color;
+    }
+  }
+  
+  .caret{
+      border-top-color: $btn-color;
+  }
+}
+
+
+@mixin btn-size($padding-vertical, $padding-horizontal, $font-size, $border){
+   font-size: $font-size;
+   border-radius: $border;
+   padding: $padding-vertical $padding-horizontal;
+    
+   &.btn-round{
+       font-weight:400;
+       padding: $padding-vertical + 1 $padding-horizontal;
+   }
+   
+   &.btn-simple{
+       padding: $padding-vertical + 2 $padding-horizontal; 
+   }
+    
+}
